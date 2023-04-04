@@ -10,15 +10,8 @@ import pandas as pd
 from fertilizer import fertilizer_dic
 import requests
 import io
-import torch
-from torchvision import transforms
-from PIL import Image
-# from model import ResNet9
-# from crop_predict import Crop_Predict
+
 import os
-from PIL import Image
-import torchvision.transforms.functional as TF
-# import CNN
 import openai
 import datetime
 
