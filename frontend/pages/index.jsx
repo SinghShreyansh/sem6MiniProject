@@ -14,7 +14,7 @@ export default function Index() {
       <section className="header relative pt-16 items-center flex h-screen max-h-860-px">
         <div className="container mx-auto items-center flex flex-wrap">
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
-            <div className="pt-32 sm:pt-0">
+            <div className="pt-48 sm:pt-0">
               <h2 className="font-semibold text-4xl text-blueGray-600">
                 Krishi - Smart Agriculture
               </h2>
@@ -24,7 +24,7 @@ export default function Index() {
               </p>
               <div className="mt-12">
                 <Link href="/fertilizer">
-                  <a className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
+                  <a className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lime-500 active:bg-lime-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
                     Get started
                   </a>
                 </Link>
@@ -36,7 +36,7 @@ export default function Index() {
         </div>
         <img
           className="absolute top-0 b-auto right-0 pt-12 sm:w-6/12 -mt-16 sm:mt-0 w-100 max-h-860-px"
-          src="/img/pattern_nextjs.png"
+          src="/img/home_page.jpg"
           alt="..."
         />
       </section>
@@ -67,13 +67,13 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center">
             <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-32">
-              <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blueGray-700">
+              <div className="relative flex flex-col min-w-0 break-words bg-lime-500 w-full mb-6 shadow-lg rounded-lg bg-lime-500">
                 <img
                   alt="..."
                   src="https://res.cloudinary.com/atharva7/image/upload/v1664643964/samples/planttree_af1zl9.jpg"
                   className="w-full align-middle rounded-t-lg"
                 />
-                <blockquote className="relative p-8 mb-4">
+                <blockquote className="relative p-8 mb-4 bg-lime-500">
                   <svg
                     preserveAspectRatio="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -82,13 +82,13 @@ export default function Index() {
                   >
                     <polygon
                       points="-30,95 583,95 583,65"
-                      className="text-blueGray-700 fill-current"
+                      className="text-lime-500 fill-current"
                     ></polygon>
                   </svg>
                   <h4 className="text-xl font-bold text-white">
                     Krishi - The Farming Assistant
                   </h4>
-                  <p className="text-md font-light mt-2 text-white">
+                  <p className="text-md font-light mt-2 text-white bg-lime-500">
                     Krishi is a software application that helps farmers manage
                     and optimize their agricultural operations. It can provide a
                     variety of features such as fertilize and weather predictions. It include
@@ -326,7 +326,7 @@ export default function Index() {
               </p>
               <div className="sm:block flex flex-col mt-10">
                 <Link href="/fertilizer">
-                  <a className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
+                  <a className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lime-500 active:bg-lime-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
                     Get started
                   </a>
                 </Link>

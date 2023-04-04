@@ -2,7 +2,7 @@ from __future__ import print_function
 import json
 from flask_cors import CORS
 from fpdf import FPDF
-from flask import Flask, request, render_template, Markup
+from flask import Flask, jsonify, request, render_template, Markup
 import numpy as np
 import pickle
 import pandas as pd
@@ -10,12 +10,11 @@ import pandas as pd
 from fertilizer import fertilizer_dic
 import requests
 import io
-
+import jsonpickle
 import os
 import openai
 import datetime
-
-
+from crop_price import prediction
 app = Flask(__name__)
 CORS(app)
 
@@ -206,9 +205,19 @@ def forecast():
     # )
     # analysis = instructions.choices[0].text
     forecast = json.dumps(forecast)
+    print(forecast)
     # Return the forecast to the user
     return [forecast, ""]
 
+@app.route('/crop_price',methods = ['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result=request.json
+        output = prediction(result)
+        output = list(map(int, output))
+        print(output)
+        # output = {"data":output}
+        return output
 
 if __name__ == "__main__":
     app.run()

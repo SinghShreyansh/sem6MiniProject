@@ -36,7 +36,7 @@ export default function Login({ providers }) {
       redirect: false,
       email: values.email,
       password: values.password,
-      callbackUrl: "/disease",
+      callbackUrl: "/fertilizer",
     });
 
     if (status.ok) router.push(status.url);
@@ -80,7 +80,7 @@ export default function Login({ providers }) {
                     type="button"
                     onClick={() =>
                       signIn("google", {
-                        callbackUrl: `${window.location.origin}/disease`,
+                        callbackUrl: `${window.location.origin}/fertilizer`,
                       })
                     }
                   >
