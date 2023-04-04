@@ -2,7 +2,7 @@ from __future__ import print_function
 import json
 from flask_cors import CORS
 from fpdf import FPDF
-from flask import Flask, request, render_template, Markup
+from flask import Flask, jsonify, request, render_template, Markup
 import numpy as np
 import pickle
 import pandas as pd
@@ -208,6 +208,48 @@ def forecast():
     forecast = json.dumps(forecast)
     # Return the forecast to the user
     return [forecast, ""]
+
+'''
+API endpoint to estimate price of 7 different plants from historical(2012-2019) data
+the problem is of time series prediction and model used is RandomforestRegressor
+'''
+@app.route('/price', methods = ["POST"])
+def price():
+    base = {
+        "coconut": 5100,
+        "cotton": 3600,
+        "black_gram": 2800,
+        "maize": 1175,
+        "moong": 3500,
+        "jute": 1675,
+        "wheat": 1350
+    }
+
+    data = request.get_json()
+    print(data)
+    if(data['crop'].lower() == 'maize'):
+        price_model = pickle.load(open("maize_price_prediction.pkl", "rb"))
+    elif(data['crop'].lower() == 'black_gram'):
+        price_model = pickle.load(open("black_gram_price_prediction.pkl", "rb"))
+    elif(data['crop'].lower() == 'coconut'):
+        price_model = pickle.load(open("coconut_price_prediction.pkl", "rb"))
+    elif(data['crop'].lower() == 'cotton'):
+        price_model = pickle.load(open("cotton_price_prediction.pkl", "rb"))
+    elif(data['crop'].lower() == 'jute'):
+        price_model = pickle.load(open("jute_price_prediction.pkl", "rb"))
+    elif(data['crop'].lower() == 'moong'):
+        price_model = pickle.load(open("moong_price_prediction.pkl", "rb"))
+    elif(data['crop'].lower() == 'wheat'):
+        price_model = pickle.load(open("wheat_price_prediction.pkl", "rb"))
+    
+
+    X = np.array(list(data.values())[1:]).reshape(1, -1)
+    print(X.shape)
+    # X_scaled = scaler.transform(X)
+    predictions = price_model.predict(X).tolist()
+    print(predictions)
+    price = round((predictions[0] * base[data['crop'].lower()]) / 100, 2 )
+    return jsonify(str(price))
 
 
 if __name__ == "__main__":
